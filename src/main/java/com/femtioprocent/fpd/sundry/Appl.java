@@ -14,7 +14,7 @@ public class Appl {
     public static String[][] help;
 
     public static void decodeArgs(String[] args, boolean dump, String[][] help) {
-        flags = S.flagAsMap(args);
+        flags.putAll(S.flagAsMap(args));
         argl = S.argAsList(args);
         if (dump) {
             S.pL("" + flags + ' ' + argl);
