@@ -7,6 +7,7 @@ import java.io.*;
 import java.util.*;
 
 import java.security.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Convenient functions for the effective programmer.
@@ -20,9 +21,22 @@ final public class S {
      *
      * @param a how many millisecunds to sleep.
      */
+    @Deprecated
     public static void m_sleep(int a) {
         try {
-            Thread.sleep(a);
+	    TimeUnit.MILLISECONDS.sleep(a);
+        } catch (InterruptedException e) {
+        }
+    }
+
+    /**
+     * Sleep for some milliseconds. Might return bofore timeout if it is interrupted.
+     *
+     * @param a how many millisecunds to sleep.
+     */
+    public static void milliSleep(int a) {
+        try {
+	    TimeUnit.MILLISECONDS.sleep(a);
         } catch (InterruptedException e) {
         }
     }
@@ -247,6 +261,13 @@ final public class S {
      */
     public static long ct() {
         return System.currentTimeMillis();
+    }
+
+    /**
+     * return time in milliseconds. Same as System.currentTimeMillis();
+     */
+    public static long cnt() {
+        return System.nanoTime();
     }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - -

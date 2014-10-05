@@ -1,5 +1,6 @@
-package com.femtioprocent.fpd.sundry;
+package com.femtioprocent.fpd.appl;
 
+import com.femtioprocent.fpd.sundry.S;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,31 +17,36 @@ public class Appl {
     public static void decodeArgs(String[] args, boolean dump, String[][] help) {
         flags.putAll(S.flagAsMap(args));
         argl = S.argAsList(args);
+	Appl.help = help;
+	
         if (dump) {
             S.pL("" + flags + ' ' + argl);
         }
 
         if (flags.get("help") != null && help != null) {
-            int max = 0;
-            for (int i = 0; i < help.length; i++) {
-                if (help[i][0].length() > max) {
-                    max = help[i][0].length() + help[i][1].length() + 1;
-                }
-            }
-
-            for (int i = 0; i < help.length; i++) {
-                String h = help[i][0];
-                String a = help[i][1];
-                String hs;
-                if (a == null || a.length() == 0) {
-                    hs = S.padRight(h, max, ' ');
-                } else {
-                    hs = S.padRight(h + '=' + a, max, ' ');
-                }
-                S.pL(hs + ' ' + help[i][2]);
-            }
+	    helpOnStdout();
             System.exit(0);
         }
+    }
+
+    private static void helpOnStdout() {
+	int max = 0;
+	for (int i = 0; i < help.length; i++) {
+	    if (help[i][0].length() > max) {
+		max = help[i][0].length() + help[i][1].length() + 1;
+	    }
+	}
+	for (int i = 0; i < help.length; i++) {
+	    String h = help[i][0];
+	    String a = help[i][1];
+	    String hs;
+	    if (a == null || a.length() == 0) {
+		hs = S.padRight(h, max, ' ');
+	    } else {
+		hs = S.padRight(h + '=' + a, max, ' ');
+	    }
+	    S.pL(hs + ' ' + help[i][2]);
+	}
     }
 
     public static void decodeArgs(String[] args) {

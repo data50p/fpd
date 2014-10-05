@@ -1,6 +1,5 @@
 package com.femtioprocent.fpd.appl;
 
-import com.femtioprocent.fpd.sundry.Appl;
 import com.femtioprocent.fpd.sundry.S;
 
 public class FPDAppl extends Appl {
