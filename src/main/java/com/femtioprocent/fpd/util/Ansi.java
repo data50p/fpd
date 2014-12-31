@@ -13,7 +13,7 @@ import java.util.Stack;
  * @author larsno
  */
 public class Ansi {
-    static boolean on = false;
+    static boolean on = !false;
     private static Stack<String> stack = new Stack<String>();
 
     static {
@@ -224,7 +224,7 @@ public class Ansi {
     }
 
     public static void main(String[] args) {
-        Ansi.on = args.length > 0;
+        Ansi.on = true;//args.length > 0;
 
         System.out.println("000");
 
@@ -244,7 +244,7 @@ public class Ansi {
         System.out.println("svart" +
                 Ansi.push(red()) + "red" +
                 Ansi.push(green()) + "green" +
-                Ansi.blue("blÂ") +
+                Ansi.blue("blå") +
                 "svart" +
                 Ansi.pop() + "still red" +
                 Ansi.pop() + "svart");
