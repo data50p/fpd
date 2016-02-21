@@ -32,7 +32,7 @@ public class PreferenceUtil {
             }
             prefs.putInt(ownername + ":" + subid + "-size", baa.length);
         } catch (IOException ex) {
-            S.pL("Can't write object: " + object + ' ' + ex);
+            System.err.println("Can't write object: " + object + ' ' + ex);
         }
     }
 
@@ -102,9 +102,9 @@ public class PreferenceUtil {
     static public void main(String[] args) {
         PreferenceUtil pu = new PreferenceUtil(PreferenceUtil.class);
         HashMap hm = (HashMap) pu.getObject("test_obj", new HashMap());
-        S.pL("get " + hm);
+        System.err.println("get " + hm);
         hm.put(args[0], args[1]);
         pu.save("test_obj", hm);
-        S.pL("saved " + hm);
+        System.err.println("saved " + hm);
     }
 }
