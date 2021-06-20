@@ -1,4 +1,5 @@
 *.class
+*.iml
 *.jar
 /src/main/java/com/femtioprocent/fpd/Version.java
 *~
