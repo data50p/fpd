@@ -6,7 +6,7 @@ public class FPDAppl extends Appl {
 
     @Override
     public void main() {
-        S.pL("main() in FPDAppl: " + Appl.flags + ' ' + Appl.argl);
+        System.err.println("main() in FPDAppl: " + Appl.flags + ' ' + Appl.argl);
     }
 
     public static void main(String[] args) {

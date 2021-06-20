@@ -20,7 +20,7 @@ public class Appl {
 	Appl.help = help;
 	
         if (dump) {
-            S.pL("" + flags + ' ' + argl);
+            System.err.println("" + flags + ' ' + argl);
         }
 
         if (flags.get("help") != null && help != null) {
@@ -45,7 +45,7 @@ public class Appl {
 	    } else {
 		hs = S.padRight(h + '=' + a, max, ' ');
 	    }
-	    S.pL(hs + ' ' + help[i][2]);
+	    System.err.println(hs + ' ' + help[i][2]);
 	}
     }
 
